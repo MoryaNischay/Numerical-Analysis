@@ -20,4 +20,3 @@ for i=2:n
     prod=prod*(p-x(i-1));
     sum=sum+prod*D(i,i);
 end
-disp(sum
