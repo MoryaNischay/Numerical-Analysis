@@ -1,9 +1,9 @@
 clc;
-clear all;
+
 f=@(x) atan(4*x);
-a=input('Enter the starting value');
-n=input('Enter the no of iterations');
-tol=input('Enter the value of tolerance');
+a=1;
+n=8;
+tol=0.001;
 i=1;
 x=f(a);
 if(x==a)
@@ -18,4 +18,4 @@ else
         i=i+1;
     end
 end
-disp(x);
+x

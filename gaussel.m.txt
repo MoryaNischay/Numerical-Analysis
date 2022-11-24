@@ -1,28 +1,28 @@
-a=input('enter matrix a');
-b=input('enter matrix b');
-n=length(b);
-x=zeros(n,1);
-for(i=1:n)
-    if(a(i,i)==0)
-        for(p=i+1:n)
-            if(a(p,i)~=0)
-                t=a(p,:);
-                a(p,:)=a(i,:);
-                a(i,:)=t;
-                w=b(p);
-                b(p)=b(i);
-                b(i)=w;
-            end
-        end
-    end
+clc 
+clear all
+
+n=4;
+
+a=[10 8 -3 1;2 10 1 -4;3 -4 10 1;2 2 -3 10 ];
+b=[16;9;10;11];
+
+y = [a b];
+
+for i=1:n-1
     for j=i+1:n
-        f=a(j,i)/a(i,i);
-        a(j,:)=a(j,:)-f*a(i,:);
-        b(j)=b(j)-f*b(i);
+        y(j,:)=y(j,:)-y(i,:)*y(j,i)/y(i,i);
     end
 end
-disp(a);
-for i=n:-1:1
-    x(i)=(b(i)-a(i,i+1:n)*x(i+1:n))/a(i,i);
+y
+x=zeros(n,1);
+
+x(n)=y(n,n+1)/y(n,n);
+
+for i=n-1:-1:1
+    sum=0;
+    for j=i+1:n
+        sum=sum+y(i,j)*x(j);
+    end
+    x(i)=(y(i,n+1)-sum)/y(i,i);
 end
 disp(x);
