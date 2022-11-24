@@ -1,15 +1,25 @@
-a=input('enter matrix a');
-b=input('enter matrix b');
-N=input('enter no of iterations');
-tol=input('Enter the value of tolerance');
-for i=1:n
-    v=a*b;
-    x=max(abs(v));
-    v1=v/x;
-    if(abs(v1-b)<=tol)
+clc
+clear all
+
+a=[4 1 0;1 20 1;0 1 4];
+x0=[1;1;1];
+tol=0.001;
+n=1;
+k0=0;
+while (n<=1000)
+    y=a*x0;
+    k=max(y);
+    x=y/k;
+    if abs(k-k0)<tol
         break;
-    end
-    b=v1;
+    else
+        k0=k;
+        x0=x;
+        n=n+1;
+    end 
 end
-disp(v1);
-disp(x);
+
+x0
+k
+
+
