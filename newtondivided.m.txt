@@ -1,9 +1,10 @@
-n=input('Enter no of values');
-for i=1:n
-    x(i)=input('Enter the values');
-    y(i)=input('Enter the values');
-end
-p=input('Enter the point');
+clc
+clear all
+
+n=4;
+x=[1 1.5 2 2.5];
+y=[2.7183 4.4817 7.3891 12.1825];
+p=2.25;
 for i=1:n
     D(i,1)=y(i);
 end
@@ -19,4 +20,4 @@ for i=2:n
     prod=prod*(p-x(i-1));
     sum=sum+prod*D(i,i);
 end
-disp(sum);
+disp(sum
